@@ -1,0 +1,11 @@
+C:\Users\Joyce Calangian\source\repos\Game Tic Tac Toe\Game Tic Tac Toe\bin\Debug\Game Tic Tac Toe.exe.config
+C:\Users\Joyce Calangian\source\repos\Game Tic Tac Toe\Game Tic Tac Toe\bin\Debug\Game Tic Tac Toe.exe
+C:\Users\Joyce Calangian\source\repos\Game Tic Tac Toe\Game Tic Tac Toe\bin\Debug\Game Tic Tac Toe.pdb
+C:\Users\Joyce Calangian\source\repos\Game Tic Tac Toe\Game Tic Tac Toe\obj\Debug\Game Tic Tac Toe.csproj.AssemblyReference.cache
+C:\Users\Joyce Calangian\source\repos\Game Tic Tac Toe\Game Tic Tac Toe\obj\Debug\Game Tic Tac Toe.csproj.SuggestedBindingRedirects.cache
+C:\Users\Joyce Calangian\source\repos\Game Tic Tac Toe\Game Tic Tac Toe\obj\Debug\Game_Tic_Tac_Toe.Properties.Resources.resources
+C:\Users\Joyce Calangian\source\repos\Game Tic Tac Toe\Game Tic Tac Toe\obj\Debug\Game Tic Tac Toe.csproj.GenerateResource.cache
+C:\Users\Joyce Calangian\source\repos\Game Tic Tac Toe\Game Tic Tac Toe\obj\Debug\Game Tic Tac Toe.csproj.CoreCompileInputs.cache
+C:\Users\Joyce Calangian\source\repos\Game Tic Tac Toe\Game Tic Tac Toe\obj\Debug\Game Tic Tac Toe.exe
+C:\Users\Joyce Calangian\source\repos\Game Tic Tac Toe\Game Tic Tac Toe\obj\Debug\Game Tic Tac Toe.pdb
+C:\Users\Joyce Calangian\source\repos\Game Tic Tac Toe\Game Tic Tac Toe\obj\Debug\Game_Tic_Tac_Toe.Form1.resources
