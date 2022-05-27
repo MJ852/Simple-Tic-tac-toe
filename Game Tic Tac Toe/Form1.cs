@@ -38,18 +38,34 @@ namespace Game_Tic_Tac_Toe
 
             else
                 b.Text = "X";
+                b.ForeColor = Color.Red;
+                lblPlayer.Text = "Next Move: Player 2";
+
+            if (move == true)
+                b.ForeColor = Color.Red;
+
+            else
+                b.ForeColor = Color.Blue;
+
+            if (move == false)
+
+                lblPlayer.Text = "Next Move: Player 1";
+
+             else
+                lblPlayer.Text = "Next Move: Player 2";
+        
+            if (move == false)
+                lblPlayer.ForeColor = Color.Red;
+
+            else
+                lblPlayer.ForeColor = Color.Blue;
 
             move = !move;
-            b.Enabled = false;
+
         }
 
-
+    
         private void lblPlayer_Click(object sender, EventArgs e)
-        {
-          
-        }
-
-        private void btn7_Click(object sender, EventArgs e)
         {
 
         }
