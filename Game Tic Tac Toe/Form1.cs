@@ -35,32 +35,42 @@ namespace Game_Tic_Tac_Toe
             if (move == true)
 
                 b.Text = "O";
+                
 
             else
                 b.Text = "X";
-                b.ForeColor = Color.Red;
-                lblPlayer.Text = "Next Move: Player 2";
-
-            if (move == true)
-                b.ForeColor = Color.Red;
-
-            else
-                b.ForeColor = Color.Blue;
-
+        
+            // Changing lblPlayer Text
             if (move == false)
 
                 lblPlayer.Text = "Next Move: Player 1";
 
              else
                 lblPlayer.Text = "Next Move: Player 2";
-        
+            
+            // Changing lblPlayer color
             if (move == false)
-                lblPlayer.ForeColor = Color.Red;
+                lblPlayer.ForeColor = Color.DarkOrange;
 
             else
-                lblPlayer.ForeColor = Color.Blue;
+                lblPlayer.ForeColor = Color.RoyalBlue;
+
+            // Button Back color
+            if (move == true)
+                b.BackColor = Color.DarkSalmon;
+
+            else
+                b.BackColor = Color.PowderBlue;
+
+            // Button Text Color
+            if (move == true)
+                b.ForeColor = Color.OldLace;
+
+            else
+                b.ForeColor = Color.AliceBlue;
 
             move = !move;
+            b.Enabled = false;
 
         }
 
@@ -68,6 +78,11 @@ namespace Game_Tic_Tac_Toe
         private void lblPlayer_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_Exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
