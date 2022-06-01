@@ -14,6 +14,7 @@ namespace Game_Tic_Tac_Toe
  
     public partial class Form1 : Form
     {
+        
         bool move = true;
         int move_count = 0;
 
@@ -80,9 +81,44 @@ namespace Game_Tic_Tac_Toe
 
         }
 
+        private void Winner()
+        {
+            bool winner_ = false;
+
+
+            // horizontal
+
+
+            if ((btn1.Text == btn2.Text) && (btn2.Text == btn3.Text))
+                winner_ = true;
+
+            else if ((btn4.Text == btn5.Text) && (btn5.Text == btn6.Text))
+                winner_ = true;
+
+            else if ((btn7.Text == btn8.Text) && (btn8.Text == btn9.Text))
+                winner_ = true;
+
+            if (winner_)
+            {
+                string winner = "";
+
+                if (move)
+                    winner = "O";
+                else
+                    winner = "X";
+                
+                MessageBox.Show(winner + "Wins!", "Congratulations!");
+            }
+
+            
+
+        }
+        
+
         private void btn_Exit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
+
     }
 }
