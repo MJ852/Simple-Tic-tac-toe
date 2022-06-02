@@ -28,55 +28,68 @@ namespace Game_Tic_Tac_Toe
         {
 
         }
+
         private void btn_Click(object sender, EventArgs e)
         {
+          
 
-            CheckingofWinner("O");
-            CheckingofWinner("X");
+            { 
+            Button bText = (Button)sender;
 
-             Button bText = (Button)sender;
-            _ = bText.ToString();
+                if (move)
+                {
+                    bText.Text = "O";
 
-            if (move == true)
+                }
+                else
+                {
+                    bText.Text = "X";
+   
+                }
+            
 
-                bText.Text = "O";
+               move = !move;
+               bText.Enabled = false;
 
+                // Changing lblPlayer Text
+                if (move == false)
 
-            else
-                bText.Text = "X";
+                    lblPlayer.Text = "Next Move: Player X";
 
-            // Changing lblPlayer Text
-            if (move == false)
+                else
+                    lblPlayer.Text = "Next Move: Player O";
 
-                lblPlayer.Text = "Next Move: Player O";
+                // Changing lblPlayer color
+                if (move == false)
+                    lblPlayer.ForeColor = Color.DarkOrange;
 
-            else
-                lblPlayer.Text = "Next Move: Player X";
+                else
+                    lblPlayer.ForeColor = Color.RoyalBlue;
 
-            // Changing lblPlayer color
-            if (move == false)
-                lblPlayer.ForeColor = Color.DarkOrange;
+                // Button Back color
+                if (move == true)
+                    bText.BackColor = Color.DarkSalmon;
 
-            else
-                lblPlayer.ForeColor = Color.RoyalBlue;
+                else
+                    bText.BackColor = Color.PowderBlue;
 
-            // Button Back color
-            if (move == true)
-                bText.BackColor = Color.DarkSalmon;
+                // Button Text Color
+                if (move == true)
+                    bText.ForeColor = Color.OldLace;
 
-            else
-                bText.BackColor = Color.PowderBlue;
+                else
+                    bText.ForeColor = Color.AliceBlue;
 
-            // Button Text Color
-            if (move == true)
-                bText.ForeColor = Color.OldLace;
+                move_count++;
+                CheckingofWinner("O");
+                CheckingofWinner("X");
+                
+                
 
-            else
-                bText.ForeColor = Color.AliceBlue;
+            }
 
-            move = !move;
-            bText.Enabled = false;
-
+         
+            
         }
 
 
@@ -87,57 +100,89 @@ namespace Game_Tic_Tac_Toe
 
         private void CheckingofWinner(string symbol)
         {
+
             //horizontal
+           
             if (btn1.Text == symbol && btn2.Text == symbol && btn3.Text == symbol)
             {
                 MessageBox.Show("Player " + symbol + " Won the game!!", "Congratulations!");
-                
+                disableButtons();
             }
             else
-                if (btn4.Text == symbol && btn5.Text == symbol && btn6.Text == symbol)
-                    {
-                         MessageBox.Show("Player " + symbol + " Won the game!!", "Congratulations!");
-                        
-            }
-                else if (btn7.Text == symbol && btn8.Text == symbol && btn9.Text == symbol)
+                  if (btn4.Text == symbol && btn5.Text == symbol && btn6.Text == symbol)
                     {
                         MessageBox.Show("Player " + symbol + " Won the game!!", "Congratulations!");
-                
-            }
+                        disableButtons();
+                    }
+                    else if (btn7.Text == symbol && btn8.Text == symbol && btn9.Text == symbol)
+                    {
+                        MessageBox.Show("Player " + symbol + " Won the game!!", "Congratulations!");
+                    disableButtons();
+                    }
 
             // vertical
-                else if (btn1.Text == symbol && btn4.Text == symbol && btn7.Text == symbol)
+                    else if (btn1.Text == symbol && btn4.Text == symbol && btn7.Text == symbol)
                      {
                         MessageBox.Show("Player " + symbol + " Won the game!!", "Congratulations!");
-                
-            }
-                else if (btn2.Text == symbol && btn5.Text == symbol && btn8.Text == symbol)
-                     {
+                        disableButtons();
+
+                        }
+                    else if (btn2.Text == symbol && btn5.Text == symbol && btn8.Text == symbol)
+                    {   
                         MessageBox.Show("Player " + symbol + " Won the game!!", "Congratulations!");
-                
-            }
-                else if (btn3.Text == symbol && btn6.Text == symbol && btn9.Text == symbol)
-                     {
-                        MessageBox.Show("Player " + symbol + " Won the game!!", "Congratulations!");
-               
-            }
+                        disableButtons();
+
+                        }
+                    else if (btn3.Text == symbol && btn6.Text == symbol && btn9.Text == symbol)
+                    {
+                         MessageBox.Show("Player " + symbol + " Won the game!!", "Congratulations!");
+                        disableButtons();
+
+                     }
+
             //diagonal
 
-                else if (btn1.Text == symbol && btn5.Text == symbol && btn9.Text == symbol)
-                     {
+                    else if (btn1.Text == symbol && btn5.Text == symbol && btn9.Text == symbol)
+                       {
                         MessageBox.Show("Player " + symbol + " Won the game!!", "Congratulations!");
-                
-            }
-                else if (btn3.Text == symbol && btn5.Text == symbol && btn7.Text == symbol)
-                     {
-                        MessageBox.Show("Player " + symbol + " Won the game!!", "Congratulations!");
-                
-            }
+                        disableButtons();
+
+                        }
+                    else if (btn3.Text == symbol && btn5.Text == symbol && btn7.Text == symbol)
+                        {
+                         MessageBox.Show("Player " + symbol + " Won the game!!", "Congratulations!");
+                        disableButtons();
+
+                         }
+                    else if (move_count == 9)
+                        {
+                          MessageBox.Show("No winner! Please try again!", "Draw!");
+                        disableButtons();
+                        }
+
+
+            
+
+
 
 
         }
 
+        private void disableButtons()
+        {
 
+            try
+            {
+                foreach (Control c in Controls)
+                {
+                    Button bText = (Button)c;
+                    bText.Enabled = false;
+                    btn_Exit.Enabled = true;
+                    btn_Reset.Enabled = true;   
+                }
+            }
+            catch { }
+        }
         private void btn_Exit_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -147,10 +192,16 @@ namespace Game_Tic_Tac_Toe
         {
             Application.Restart();
         }
+
+
+        
+
+
+
     }
 
 
-    
+
 }
         
 
