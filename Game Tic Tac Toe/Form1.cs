@@ -11,10 +11,10 @@ using System.Windows.Forms;
 namespace Game_Tic_Tac_Toe
 {
 
- 
+
     public partial class Form1 : Form
     {
-        
+
         bool move = true;
         int move_count = 0;
 
@@ -26,29 +26,33 @@ namespace Game_Tic_Tac_Toe
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            MessageBox.Show("Welcome Players!\r\n\r\n Are you ready?!", "Tic Tac Toe", MessageBoxButtons.OK);
-        
-          }
+
+        }
         private void btn_Click(object sender, EventArgs e)
         {
-            Button b = (Button)sender;
+
+            CheckingofWinner("O");
+            CheckingofWinner("X");
+
+             Button bText = (Button)sender;
+            _ = bText.ToString();
 
             if (move == true)
 
-                b.Text = "O";
-                
+                bText.Text = "O";
+
 
             else
-                b.Text = "X";
-        
+                bText.Text = "X";
+
             // Changing lblPlayer Text
             if (move == false)
 
-                lblPlayer.Text = "Next Move: Player 1";
+                lblPlayer.Text = "Next Move: Player O";
 
-             else
-                lblPlayer.Text = "Next Move: Player 2";
-            
+            else
+                lblPlayer.Text = "Next Move: Player X";
+
             // Changing lblPlayer color
             if (move == false)
                 lblPlayer.ForeColor = Color.DarkOrange;
@@ -58,67 +62,97 @@ namespace Game_Tic_Tac_Toe
 
             // Button Back color
             if (move == true)
-                b.BackColor = Color.DarkSalmon;
+                bText.BackColor = Color.DarkSalmon;
 
             else
-                b.BackColor = Color.PowderBlue;
+                bText.BackColor = Color.PowderBlue;
 
             // Button Text Color
             if (move == true)
-                b.ForeColor = Color.OldLace;
+                bText.ForeColor = Color.OldLace;
 
             else
-                b.ForeColor = Color.AliceBlue;
+                bText.ForeColor = Color.AliceBlue;
 
             move = !move;
-            b.Enabled = false;
+            bText.Enabled = false;
 
         }
 
-    
+
         private void lblPlayer_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void Winner()
+        private void CheckingofWinner(string symbol)
         {
-            bool winner_ = false;
-
-
-            // horizontal
-
-
-            if ((btn1.Text == btn2.Text) && (btn2.Text == btn3.Text))
-                winner_ = true;
-
-            else if ((btn4.Text == btn5.Text) && (btn5.Text == btn6.Text))
-                winner_ = true;
-
-            else if ((btn7.Text == btn8.Text) && (btn8.Text == btn9.Text))
-                winner_ = true;
-
-            if (winner_)
+            //horizontal
+            if (btn1.Text == symbol && btn2.Text == symbol && btn3.Text == symbol)
             {
-                string winner = "";
-
-                if (move)
-                    winner = "O";
-                else
-                    winner = "X";
+                MessageBox.Show("Player " + symbol + " Won the game!!", "Congratulations!");
                 
-                MessageBox.Show(winner + "Wins!", "Congratulations!");
+            }
+            else
+                if (btn4.Text == symbol && btn5.Text == symbol && btn6.Text == symbol)
+                    {
+                         MessageBox.Show("Player " + symbol + " Won the game!!", "Congratulations!");
+                        
+            }
+                else if (btn7.Text == symbol && btn8.Text == symbol && btn9.Text == symbol)
+                    {
+                        MessageBox.Show("Player " + symbol + " Won the game!!", "Congratulations!");
+                
             }
 
-            
+            // vertical
+                else if (btn1.Text == symbol && btn4.Text == symbol && btn7.Text == symbol)
+                     {
+                        MessageBox.Show("Player " + symbol + " Won the game!!", "Congratulations!");
+                
+            }
+                else if (btn2.Text == symbol && btn5.Text == symbol && btn8.Text == symbol)
+                     {
+                        MessageBox.Show("Player " + symbol + " Won the game!!", "Congratulations!");
+                
+            }
+                else if (btn3.Text == symbol && btn6.Text == symbol && btn9.Text == symbol)
+                     {
+                        MessageBox.Show("Player " + symbol + " Won the game!!", "Congratulations!");
+               
+            }
+            //diagonal
+
+                else if (btn1.Text == symbol && btn5.Text == symbol && btn9.Text == symbol)
+                     {
+                        MessageBox.Show("Player " + symbol + " Won the game!!", "Congratulations!");
+                
+            }
+                else if (btn3.Text == symbol && btn5.Text == symbol && btn7.Text == symbol)
+                     {
+                        MessageBox.Show("Player " + symbol + " Won the game!!", "Congratulations!");
+                
+            }
+
 
         }
-        
+
 
         private void btn_Exit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
         }
 
+        private void btn_Reset_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
     }
+
+
+    
 }
+        
+
+    
+
